@@ -22,6 +22,10 @@ When work must block on a person, the agent creates a human gate bead (`gc bd ga
 
 Addressee resolution, first non-empty: gate assignee → `gc.deferred_assignee` metadata → `$GC_ESCALATION_RECIPIENT` (default `"human"`). In a city with a mayor, **set `GC_ESCALATION_RECIPIENT=mayor`** so gates consolidate at the mayor instead of mailing the user directly from every worker.
 
+## The right to refuse and escalate
+
+Any agent may refuse work that is unsafe, unclear, or mis-scoped, and may escalate: raise a human gate (`gc bd gate create`) or mail the mayor "this needs the human". Refusal is correct behavior and is never punished — it is a constitution rule (rule 3 in `assets/constitution-seed.md`). With `GC_ESCALATION_RECIPIENT=mayor`, refusals consolidate at the mayor like every other escalation; the mayor re-scopes the work or hands the decision to the user — never to blame.
+
 ## Mayor → user
 
 The mayor surfaces the consolidated decision three ways:

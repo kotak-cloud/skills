@@ -1,0 +1,41 @@
+description = """
+Close-out for async work.
+
+The builder finished its synchronous steps and moved on; this formula verifies
+that the async work (a CI build, a migration, a deploy) actually landed,
+closes the work, and reports. Route it with an event order that fires when the
+async work signals completion — no worker ever babysits a build.
+"""
+formula = "close-out"
+version = 1
+contract = "graph.v2"
+target_required = true
+
+[catalog]
+name = "close-out"
+description = "Verify and close work whose heavy lifting happened asynchronously."
+
+[metadata.gc.methodology]
+implementation_strategy = "single"
+interaction_modes = ["interactive", "autonomous", "headless"]
+
+[[steps]]
+id = "verify"
+title = "Verify the async work landed"
+metadata = { "gc.run_target" = "gc.run-operator" }
+description = """
+Check the async work's outcome: the CI run passed, the migration applied, the
+deploy is live. Evidence, not vibes — capture the status URL or command output
+in the bead.
+"""
+
+[[steps]]
+id = "close"
+title = "Close the work and record the outcome"
+needs = ["verify"]
+metadata = { "gc.run_target" = "gc.run-operator" }
+description = """
+Close the bead with the outcome recorded. If the async work failed, do not
+close it as done: raise the failure as a finding (mail the mayor or open a
+human gate) and record what happened — the record is never falsified.
+"""
