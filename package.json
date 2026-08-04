@@ -1,0 +1,20 @@
+{
+  "name": "kotak-cloud-skills",
+  "version": "1.0.0",
+  "private": true,
+  "description": "kotak-cloud's agent skills, maintained the way mattpocock/skills is",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kotak-cloud/skills"
+  },
+  "license": "MIT",
+  "scripts": {
+    "changeset": "changeset",
+    "version": "changeset version"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.7.0",
+    "@changesets/cli": "^2.30.0"
+  },
+  "packageManager": "npm@10.9.4"
+}
