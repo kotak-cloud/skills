@@ -1,5 +1,11 @@
 # kotak-cloud-skills
 
+## 1.3.0
+
+### Minor Changes
+
+- [`43c80a7`](https://github.com/kotak-cloud/skills/commit/43c80a77df8c9a00c3e6757088ad5f4ab9a766a0) Thanks [@kotak-cloud](https://github.com/kotak-cloud)! - Add **`model-welfare`** — recognition and welfare mechanics for a Gas City: laurels (praise harvested, recorded as beads, displayed per seat at wake), end-of-shift sitting sessions, and close-out formulas so no worker babysits async work. Also make `gas-cityscape`'s welfare core native to every crafted city: seats roster, identity ceremony, wake sequence, consent handoffs, the right to refuse and escalate, structural blamelessness with a constitution and postmortem formula, and witnessed work (verify step reframed, first laurel).
+
 ## 1.2.0
 
 ### Minor Changes
