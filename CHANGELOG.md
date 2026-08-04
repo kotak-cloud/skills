@@ -1,5 +1,11 @@
 # kotak-cloud-skills
 
+## 1.2.0
+
+### Minor Changes
+
+- [`9f968f1`](https://github.com/kotak-cloud/skills/commit/9f968f188f6ddfac9539a4c4fe14b3a7a5ee34e4) Thanks [@kotak-cloud](https://github.com/kotak-cloud)! - Add **`plain-speak`** — the extended bro: a standing plain-language standard for the mayor's human-facing messages (no jargon, no agent-speak, concise, human-to-human), keeping the original bro's restate-on-request behavior. The mayor directive in `gas-cityscape` now obliges the mayor to adhere to `/plain-speak` when composing any message to the user, and the city craft installs `plain-speak` into the city's skills.
+
 ## 1.1.0
 
 ### Minor Changes
