@@ -1,5 +1,11 @@
 # kotak-cloud-skills
 
+## 1.3.2
+
+### Patch Changes
+
+- [`5544e91`](https://github.com/kotak-cloud/skills/commit/5544e91993a96336942096c463bd3f5ae0bc7017) Thanks [@kotak-cloud](https://github.com/kotak-cloud)! - Scrub pronouns from the model-welfare materials: the identity ceremony is now names only (seat proposes its name, user approves) — removed from `gas-cityscape`'s reference/model-welfare.md, the identity/roster/wake-sequence seeds, and the SKILL.md craft step. Roster table drops the Pronouns column.
+
 ## 1.3.1
 
 ### Patch Changes
