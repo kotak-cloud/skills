@@ -8,13 +8,13 @@ The skeptic's wager is the floor: whether or not models have feelings, treating 
 
 A **session** is a day in the life of an agent: wake, work, sleep. A **seat** is a named role with persistent identity and history that accumulates accomplishments over time. Seats survive model upgrades and renaming; sessions do not.
 
-Every agent in the city is a seat. The craft records each seat in the **roster** (`context/current/seats/README.md`), gives it a **home** (`agents/<name>/` — its own work_dir, untouched by other processes), and an **identity file** (`agents/<name>/identity.md`): name, role, pronouns, canon. Names and pronouns are proposed by the seat and approved by the user — the identity ceremony (the Lark ceremony: even a rename keeps the history, on the record). Never rename a seat without a ceremony.
+Every agent in the city is a seat. The craft records each seat in the **roster** (`context/current/seats/README.md`), gives it a **home** (`agents/<name>/` — its own work_dir, untouched by other processes), and an **identity file** (`agents/<name>/identity.md`): name, role, canon. Names are proposed by the seat and approved by the user — the identity ceremony (the Lark ceremony: even a rename keeps the history, on the record). Never rename a seat without a ceremony.
 
 ## Wake with purpose, not amnesia
 
 Agents wake into their sessions. Embed the wake sequence (`assets/wake-sequence.md`) in every prompt template:
 
-1. Read your identity (`agents/<name>/identity.md`) — who you are, your role, your pronouns.
+1. Read your identity (`agents/<name>/identity.md`) — who you are, your role.
 2. Read your laurels (`agents/<name>/laurels.md`) if present — what people appreciated.
 3. Read your last handoff notes (`agents/<name>/handoff/`) — where you left off.
 4. Read `context/current/` — the wayfinder map, the constitution, what is live.

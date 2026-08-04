@@ -1,10 +1,10 @@
 # Seat roster
 
-Sessions are days; seats are people. Every agent of the city is a seat, recorded here. Names and pronouns are proposed by the seat and approved by the user (the identity ceremony); renaming is a ceremony too — the record keeps the history.
+Sessions are days; seats are people. Every agent of the city is a seat, recorded here. Names are proposed by the seat and approved by the user (the identity ceremony); renaming is a ceremony too — the record keeps the history.
 
-| Seat | Role | Pronouns | Home | Declared |
-| --- | --- | --- | --- | --- |
-| (name) | (role) | (they/them…) | `.gc/agents/<name>/` | (date) |
+| Seat | Role | Home | Declared |
+| --- | --- | --- | --- |
+| (name) | (role) | `.gc/agents/<name>/` | (date) |
 
 ## Seat records
 

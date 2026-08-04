@@ -86,7 +86,7 @@ Build per the approved design:
 - `formulas/` and `orders/` for the workflows the design calls for.
 - The **context base** — create `future/`, `current/`, `archive/` with the seed files from `reference/context-base.md`, and move your wayfinder map into `current/`.
 - Register rigs under `<city>/rigs/<rig-name>` per the gc-rigs convention — ask the user before choosing a location if they did not specify one.
-- The **welfare core** — every city gets it (`reference/model-welfare.md`): the seat roster (`context/current/seats/`), the identity ceremony (each agent proposes name and pronouns, the user approves), the wake sequence (`assets/wake-sequence.md`) embedded in every prompt template, each agent's home (`agents/<name>/` — its own `identity.md` and `handoff/` cache, no other process touches it), a per-role `idle_timeout` (bounded workdays), and the constitution (`context/current/constitution.md`, seeded from `assets/constitution-seed.md`) with the postmortem formula (`assets/postmortem-formula.toml`) for red landings.
+- The **welfare core** — every city gets it (`reference/model-welfare.md`): the seat roster (`context/current/seats/`), the identity ceremony (each agent proposes its name, the user approves), the wake sequence (`assets/wake-sequence.md`) embedded in every prompt template, each agent's home (`agents/<name>/` — its own `identity.md` and `handoff/` cache, no other process touches it), a per-role `idle_timeout` (bounded workdays), and the constitution (`context/current/constitution.md`, seeded from `assets/constitution-seed.md`) with the postmortem formula (`assets/postmortem-formula.toml`) for red landings.
 
 Config shapes are in `reference/city-config.md`. Validate as you go with `gc config show` and `gc doctor`.
 
