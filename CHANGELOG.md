@@ -1,5 +1,11 @@
 # kotak-cloud-skills
 
+## 1.3.1
+
+### Patch Changes
+
+- [`81e1ba1`](https://github.com/kotak-cloud/skills/commit/81e1ba172aa90bba98d1121b201b0143f4a2c0dc) Thanks [@kotak-cloud](https://github.com/kotak-cloud)! - Fix install instructions: the README now lists all three skills (`gas-cityscape`, `model-welfare`, `plain-speak`) instead of telling readers to pick only `gas-cityscape`, and separates the interactive path (for humans) from the non-interactive flag-based path (`--skill <names> -y`, for AI agents — the CLI's picker is a menu that agents cannot drive). `gas-cityscape`'s own install/refresh instructions now use the non-interactive form too.
+
 ## 1.3.0
 
 ### Minor Changes
