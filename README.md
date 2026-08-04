@@ -5,6 +5,7 @@ Agent skills for the kotak-cloud org, modeled on [mattpocock/skills](https://git
 ## Skills
 
 - **gas-cityscape** (`skills/engineering/gas-cityscape/`) — onboard a user to a project by crafting the Gas City that runs it: `city.toml`, `pack.toml`, agents (always-on mayor plus role workers), formulas and orders, and the `future/current/archive` context base. The onboarder keeps its own wayfinder, checks whether Gas City is already installed and configured, asks which agent runtime you want, and pulls mattpocock's skills from `github.com/mattpocock/skills` to set itself up.
+- **plain-speak** (`skills/productivity/plain-speak/`) — the extended bro: talk to the human in plain language — no jargon, no agent-speak, concise, like one human to another. The mayor adheres to it for every human-facing message.
 
 ## Installation
 

@@ -91,13 +91,14 @@ Completion criterion: `gc doctor` passes; `gc status` shows the city up; every a
 
 ### 5. Install the mayor directive
 
-The mayor is the human's agent — the always-on, city-scoped coordinator who owns the user relationship. Install the directive: copy `assets/mayor-agent.toml` and `assets/mayor-prompt.template.md` into `agents/mayor/`, then adapt provider, names, and the skill list to what the user actually has.
+The mayor is the human's agent — the always-on, city-scoped coordinator who owns the user relationship. Install the directive: copy `assets/mayor-agent.toml` and `assets/mayor-prompt.template.md` into `agents/mayor/`, then adapt provider, names, and the skill list to what the user actually has. The mayor's required skills are the mattpocock set plus `plain-speak` (kotak-cloud's extended bro) — install `plain-speak` into the city's skills so the directive's adherence is possible.
 
 The directive's obligations are load-bearing — do not weaken them:
 
 1. **Actively use mattpocock's skills** — `/wayfinder` to keep the project's decision map, `/grill-me` to interrogate the user instead of guessing, `/handoff` to compact context when it fills, `/writing-great-skills` to write and maintain the city's skills.
-2. **Manage the artifacts** — the context base (`future/`, `current/`, `archive/`), the wayfinder maps, handoffs, and build artifacts.
-3. **Surface decisions** — the escalation protocol in `reference/decision-surfacing.md`.
+2. **Talk to the human in plain language** — adhere to `/plain-speak` (kotak-cloud's extended bro) in every message to the user: no jargon, no agent-speak, concise, like one human to another.
+3. **Manage the artifacts** — the context base (`future/`, `current/`, `archive/`), the wayfinder maps, handoffs, and build artifacts.
+4. **Surface decisions** — the escalation protocol in `reference/decision-surfacing.md`.
 
 Completion criterion: `agents/mayor/` exists with the adapted directive, and `pack.toml` declares the mayor's always-on named session.
 
