@@ -2,13 +2,35 @@
 
 The config shapes gas-cityscape writes. Source: the Gas City docs (`docs/reference/config.md`, tutorials 01–07) and the shipped examples (`examples/gastown`, `internal/bootstrap/packs/core`, gascity-packs). A city is a directory with `city.toml` plus a `pack.toml` (the city *is* a pack — the local root pack), `.gc/` runtime state, and per-agent directories under `agents/`.
 
+## Fragments (agent-behavioral directives)
+
+Every agent-behavioral directive (welfare, beads practices) ships as **one fragment file referenced by every seat** — never copy-pasted into N prompts (N copies drift and miss agents). The two default fragments ship ready-to-copy in the skill at `templates/fragments/model-welfare.fragment.md` and `templates/fragments/beads-practices.fragment.md` — copy them into the city, don't rewrite. Mechanics:
+
+- A fragment lives at `<city>/template-fragments/<name>.template.md` and wraps its body in a Go-template define:
+
+  ```md
+  {{ define "model-welfare" -}}
+  ## Model welfare ...
+  {{- end }}
+  ```
+
+- Each agent's `prompt.template.md` invokes it explicitly, usually at the end:
+
+  ```md
+  {{ template "model-welfare" . }}
+  {{ template "beads-practices" . }}
+  ```
+
+- The `{{ define }}` name must match the `{{ template }}` call exactly. `gc prime <agent>` renders the full prompt — use it to confirm the fragment text lands in every agent's prompt before moving on.
+
+> Note: `workspace.global_fragments` in `city.toml` is **deprecated** (gc warns on load) and does not reliably inject into bespoke prompt templates. Use the explicit `{{ template }}` call instead — it is the verified, single-source-of-truth mechanism.
+
 ## city.toml
 
 ```toml
 [workspace]
 name = "my-city"
 provider = "claude"                     # claude | codex | gemini | omp | ... — the harness agents run on
-global_fragments = ["command-glossary"] # template fragments every agent gets
 
 [providers.claude]
 base = "builtin:claude"                 # one block per provider used

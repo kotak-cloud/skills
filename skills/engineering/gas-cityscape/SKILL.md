@@ -62,7 +62,7 @@ Completion criterion: every question the user cares about is answered and record
 
 ### 3. Brainstorm the city design
 
-The wayfinder's second purpose. Design the city to cover the workflows from step 2:
+The wayfinder's second purpose. Design the city to cover the workflows from step 2. Invoke `/design-thinking` to run the craft as a graph: name the shapes (workflows, beads, seats), draw the happy path (how work flows from creation → sling → claim → execute → close), annotate where it breaks (agent death, missing worker, config error), and name what each agent needs to exist (provider, prompt, identity, pack imports, fragments). Design the propagation of every agent-behavioral directive (welfare, beads practices) as **one fragment file reaching every seat** — not N copies in N prompts. A fragment lives in `template-fragments/<name>.template.md` and each agent's `prompt.template.md` invokes it with an explicit `{{ template "<name>" . }}` call. Write the directive once, reference it everywhere.
 
 - **Pack imports** — builtins `core` (mechanical housekeeping orders: gate sweep, orphan sweep, human-gate notify) and `bd` (Dolt bead store) are the floor; add the `gascity` build pack for software-delivery workflows (`build-basic`), a methodology pack (bmad, compound-engineering, superpowers, gstack) if the user wants one, and the `gastown` pack only if they want the Gastown role set. Import shapes in `reference/city-config.md`.
 - **Beads hygiene loop** — wire `city.health.bd-sweep` as a cooldown order (24h) so `bd doctor --fix` + `bd cleanup` + `bd sync` runs unattended; details and the formula import path in `reference/beads-ops.md`.
@@ -82,9 +82,10 @@ Completion criterion: the design is written on the wayfinder (or a linked decisi
 Build per the approved design:
 
 - `gc init <city-dir>` (or `gc init` inside the project dir for a workspace-scoped city), then `gc start`.
-- `city.toml` — `[workspace]` (name, provider, `global_fragments`), `[providers.<name>]`, `[[rigs]]` (name, prefix, default_branch), `[daemon]` options.
+- `city.toml` — `[workspace]` (name, provider), `[providers.<name>]`, `[[rigs]]` (name, prefix, default_branch), `[daemon]` options.
 - `pack.toml` — pack name, `schema = 2`, `[imports.*]` for core, bd, and the chosen packs; `[[named_session]]` declaring the mayor with `mode = "always"`.
 - `agents/<name>/agent.toml` plus `prompt.template.md` for each role — the mayor last, from step 5.
+- **Fragments** — every agent-behavioral directive ships as one fragment file, copied from the skill's stored templates into `template-fragments/<name>.template.md` (the `{{ define "<name>" }}…{{ end }}` body is already written), and each agent's `prompt.template.md` ends with the explicit call `{{ template "<name>" . }}`. Start from `templates/fragments/model-welfare.fragment.md` and `templates/fragments/beads-practices.fragment.md` — copy, don't rewrite; adapt names and details to the city. One source of truth, referenced by every seat. Verify with `gc prime <agent>` that the fragment text renders into every prompt before moving on.
 - `formulas/` and `orders/` for the workflows the design calls for.
 - The **context base** — create `future/`, `current/`, `archive/` with the seed files from `reference/context-base.md`, and move your wayfinder map into `current/`.
 - Register rigs under `<city>/rigs/<rig-name>` per the gc-rigs convention — ask the user before choosing a location if they did not specify one.
