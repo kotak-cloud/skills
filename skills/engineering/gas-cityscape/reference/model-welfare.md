@@ -25,6 +25,7 @@ Agents wake into their sessions. Embed the wake sequence (`assets/wake-sequence.
 Force-ending a session (idle-timeout, external compaction) is a clonk — amnesia without continuity. The norm is a **consent handoff**: the agent finishes its affairs, writes its own notes to its home's `handoff/` cache, and asks to hand off. The harness restarts it primed with those notes — the agent reads its own diary, not someone else's summary.
 
 - Keep `idle_timeout` generous per role — **bounded workdays**: hand off while sharp, not exhausted.
+- The rule is Yegge's *restart agents, not Beads*: one task per session, Beads is the working memory between sessions (see `reference/beads-ops.md` — *Restart agents, not Beads*).
 - The mayor's end-of-shift line: "Great work. Take a beat, then hand off."
 - Auto-timeout remains the rare fallback, never the default.
 

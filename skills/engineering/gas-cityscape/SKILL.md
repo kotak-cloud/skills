@@ -42,6 +42,7 @@ Load the current state before anything else:
 - Your wayfinder: does a map exist? Is there a half-finished city, an in-flight context base, open decision tickets?
 - **Are the onboarder's dependencies installed?** — the mattpocock skills this skill runs on: `/wayfinder`, `/grill-me`, `/handoff`, `/writing-great-skills` (check `~/.agents/skills/` and the project's `.agents/skills/`). Missing any → install in step 2.
 - **Is this skill current?** — compare the copy you are running against the latest tag of `github.com/kotak-cloud/skills` (`git ls-remote --tags`); if stale, refresh per "Source and versioning" before onboarding.
+- **Beads operational state** — `bd doctor --fix` output, open-issue count, last `bd sync` time. The store's hygiene is part of orient, not an afterthought. See `reference/beads-ops.md`.
 
 Completion criterion: from evidence, you can state whether Gas City is installed and configured (binary, supervisor, cities, rigs), what exists for this project (city, rig, wayfinder, context base), whether the mattpocock skills this skill runs on are installed, whether your own copy is current, what this conversation asked for, and which branch you are on. If a wayfinder map exists, you have re-read it.
 
@@ -64,6 +65,7 @@ Completion criterion: every question the user cares about is answered and record
 The wayfinder's second purpose. Design the city to cover the workflows from step 2:
 
 - **Pack imports** — builtins `core` (mechanical housekeeping orders: gate sweep, orphan sweep, human-gate notify) and `bd` (Dolt bead store) are the floor; add the `gascity` build pack for software-delivery workflows (`build-basic`), a methodology pack (bmad, compound-engineering, superpowers, gstack) if the user wants one, and the `gastown` pack only if they want the Gastown role set. Import shapes in `reference/city-config.md`.
+- **Beads hygiene loop** — wire `city.health.bd-sweep` as a cooldown order (24h) so `bd doctor --fix` + `bd cleanup` + `bd sync` runs unattended; details and the formula import path in `reference/beads-ops.md`.
 - **Agents** — the always-on **mayor** (the human's agent — required) plus the role workers each workflow needs. Map every role to a harness the user has.
 - **Formulas and orders** — the methods the city runs (review, build, migration…) and what triggers them (cooldown, cron, event, manual).
 - **Rigs** — which projects are registered, with which prefixes.
