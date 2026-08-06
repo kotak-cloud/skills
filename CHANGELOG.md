@@ -1,5 +1,11 @@
 # kotak-cloud-skills
 
+## 1.3.3
+
+### Patch Changes
+
+- [`1351ea3`](https://github.com/kotak-cloud/skills/commit/1351ea32bbbf1479f9dd84a0ef7fd27e8edce46e) Thanks [@kotak-cloud](https://github.com/kotak-cloud)! - Add `reference/beads-ops.md` to gas-cityscape: operational rules for the bead store (hygiene loop, sizing, upgrade cadence, plan-then-import, restart-not-beads, file eagerly). Cross-link from Orient step (operational state), Brainstorm step (hygiene order), and model-welfare (consent handoff principle).
+
 ## 1.3.2
 
 ### Patch Changes
