@@ -4,7 +4,7 @@ The config shapes gas-cityscape writes. Source: the Gas City docs (`docs/referen
 
 ## Fragments (agent-behavioral directives)
 
-Every agent-behavioral directive (welfare, beads practices) ships as **one fragment file referenced by every seat** — never copy-pasted into N prompts (N copies drift and miss agents). The two default fragments ship ready-to-copy in the skill at `templates/fragments/model-welfare.fragment.md` and `templates/fragments/beads-practices.fragment.md` — copy them into the city, don't rewrite. Mechanics:
+Every agent-behavioral directive (welfare, beads practices) ships as **one fragment file referenced by every seat** — never copy-pasted into N prompts (N copies drift and miss agents). The two default fragments ship ready-to-copy in the skill at `templates/fragments/model-welfare.template.md` and `templates/fragments/beads-practices.template.md` — copy them into the city, don't rewrite. The prompt renderer loads only `*.template.md` from `template-fragments/` (a `.fragment.md` suffix is silently skipped), so keep the shipped filename. Mechanics:
 
 - A fragment lives at `<city>/template-fragments/<name>.template.md` and wraps its body in a Go-template define:
 

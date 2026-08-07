@@ -9,7 +9,7 @@ session reads first.
 - `bd doctor --fix` — diagnose + auto-fix the store.
 - `bd cleanup --max-age 30d` — drop issues older than 30d (keep the working set small; ~200 open is the soft cap, 500 is the hard cap — cleanup before you hit it).
 - `bd sync` — push the store to git, fix merge drift.
-The city also runs these unattended on a 24h cooldown (`city.health.bd-sweep`); the manual loop is the fallback and the habit.
+The city also runs these unattended on a 24h cooldown (`orders/bd-sweep.toml`); the manual loop is the fallback and the habit.
 
 **Restart agents, not Beads.** One task per session. When done, close the bead, write your own handoff notes, and ask to hand off. Beads is the memory *between* sessions, not the conversation inside one.
 

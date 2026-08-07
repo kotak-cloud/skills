@@ -14,19 +14,30 @@ bd cleanup --max-age 30d   # delete issues older than 30d (city default; tighten
 bd sync                    # push the store to git; fixes merge drift
 ```
 
-Wire the loop as a cooldown order in `orders/bd-hygiene.toml`:
+Wire the loop as a cooldown order in `orders/bd-sweep.toml`:
 
 ```toml
 [order]
 description = "Beads hygiene: doctor, cleanup, sync"
-formula = "city.health.bd-sweep"   # ships in gascity-packs/gascity/build-basic
+exec = "scripts/bd-sweep.sh"
 trigger = "cooldown"
 interval = "24h"
-pool = "worker"
 timeout = "60s"
 ```
 
-The formula version runs the loop unattended; the manual `bd doctor --fix` + `bd cleanup` + `bd sync` sequence is the fallback when the formula isn't installed yet.
+with `scripts/bd-sweep.sh`:
+
+```bash
+#!/usr/bin/env bash
+# Beads hygiene loop — runs unattended on the cooldown order above.
+set -euo pipefail
+cd "$(dirname "$0")/.."
+bd doctor --fix
+bd cleanup --max-age 30d
+bd sync
+```
+
+The exec script runs the loop unattended; the manual `bd doctor --fix` + `bd cleanup` + `bd sync` sequence is the fallback habit. There is no `city.health.bd-sweep` formula in the gascity pack catalog, and exec orders reject a `pool` key — the script form above is the verified default.
 
 ## Sizing — keep the working set small
 
